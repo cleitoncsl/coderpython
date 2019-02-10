@@ -39,7 +39,10 @@ Adicionar() {
      echo "A chave foi adicionada! com sucesso"
      sleep 1s     
      ssh-add -l -E md5
-     git init 
+     git init
+     git add *
+     git commit -m 'chave ssh'
+     git push origin master
      exit 0
 
    else
