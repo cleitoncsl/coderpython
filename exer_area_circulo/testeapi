@@ -1,0 +1,55 @@
+import requests as r
+
+import json
+
+origem = input(str("Digite a Origem: "))
+
+destino = input(str("Digite a Destino: "))
+
+tipo = input(str("Qual o tipo de condução? "))
+
+print("-" + origem)
+
+print("-" + destino)
+
+print("-" + tipo)
+
+if len(origem) < 2:
+
+    print("erro")
+
+elif len(destino) < 2:
+
+    print("erro")
+
+elif len(tipo) < 2:
+
+    print("erro")
+
+else:
+
+    api = 'AIzaSyD7uh9owXdbacMuMGNJjts-lCVRZp1URqE'
+
+    p1 = 'https://maps.googleapis.com/maps/api/distancematrix/json?'
+
+    p2 = 'origins={}&'.format(origem)
+
+    p3 = ('destinations={}&'.format(destino))
+
+    p4 = 'mode=car&language=pt&'
+    p5 = 'key=AIzaSyD7uh9owXdbacMuMGNJjts-lCVRZp1URqE'
+
+    print(p1+p2+p3+p4+p5)
+
+    resultado = p1+p2+p3+p4+p5
+
+    response = r.get(resultado)
+
+    a = json.loads(response.text)
+
+    response = r.get(resultado)
+
+    a = json.loads(response.text)
+
+    print(a["destination_addresses"])
+
